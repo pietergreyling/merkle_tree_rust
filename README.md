@@ -35,5 +35,29 @@ Key components of this implementation:
 
 This implementation is deliberately simple to focus on the fundamental concepts rather than optimization or advanced features. 
 
+## The Rust Crypto Ecosystem
+
+Rust benefits from a vibrant and active ecosystem for cryptographic operations, largely curated under the RustCrypto project umbrella. 
+
+A key component of this ecosystem is the digest crate. This crate defines a set of common traits, most notably the Digest trait, which specifies a standard interface for cryptographic hash functions. Adhering to this trait allows developers to write code that is generic over different hash algorithms, promoting modularity and code reuse.
+
+Numerous crates implement specific hash functions and conform to the digest traits. 
+
+Popular and secure options include:
+
+* sha2: Provides implementations of the SHA-2 family (SHA-256, SHA-512, etc.).
+* sha3: Implements the SHA-3 family (Keccak).
+* blake2: Implements the BLAKE2 family of hash functions.
+
+While implementations for older or cryptographically weaker algorithms like MD5 and SHA-1 also exist , their use is generally discouraged in new applications due to known vulnerabilities.
+
+The use of traits like Digest encourages abstraction. 
+
+The core logic of building a Merkle Tree—hashing leaves and then iteratively hashing pairs—is independent of the specific hash function employed. 
+
+By utilizing the Digest trait, a Merkle Tree implementation could potentially switch between, for example, SHA-256 and SHA-512 with minimal modification. 
+
+While the implementation presented here will use SHA-256 for simplicity, structuring the internal hashing operations to align with the Digest trait's methods reflects good Rust practice and highlights the ecosystem's modular design.
+
 
 
