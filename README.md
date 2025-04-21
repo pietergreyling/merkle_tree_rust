@@ -17,4 +17,23 @@ This structure serves as a more sophisticated evolution of simpler concepts like
 
 Its utility is demonstrated in numerous real-world systems requiring robust data verification, including prominent blockchains like Bitcoin and Ethereum, distributed databases such as Apache Cassandra, and version control systems like Git, primarily for ensuring data integrity and facilitating efficient synchronization between distributed copies of data.
 
+This implementation illustrates the core principles of a Merkle Tree:
+
+1. **Leaf Nodes**: Each data block is hashed to create leaf nodes
+2. **Internal Nodes**: Parent nodes are created by hashing the concatenation of their children's hashes
+3. **Tree Structure**: The tree is built bottom-up by combining pairs of nodes
+4. **Root Hash**: The root of the tree represents a cryptographic summary of all data
+5. **Verification**: Data can be verified using a proof path (though the full verification logic would be more complex in a production system)
+
+Key components of this implementation:
+
+- Uses SHA-256 for hashing
+- Includes both leaf and internal nodes
+- Builds the tree from the bottom up
+- Supports verification of data against the root hash using Merkle proofs
+- Handles odd numbers of nodes at each level
+
+This implementation is deliberately simple to focus on the fundamental concepts rather than optimization or advanced features. 
+
+
 
