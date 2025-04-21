@@ -156,6 +156,13 @@ impl Clone for Node {
 }
 
 // Example usage
+// fn main() {
+//     let data = vec!["a", "b", "c", "d"];
+//     let merkle_tree = MerkleTree::new(data);
+//     println!("Merkle Root: {}", merkle_tree.root());
+// }
+
+// Example usage
 fn main() {
     // Create some data blocks
     let data_blocks = vec![
