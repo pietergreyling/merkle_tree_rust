@@ -59,5 +59,8 @@ By utilizing the Digest trait, a Merkle Tree implementation could potentially sw
 
 While the implementation presented here will use SHA-256 for simplicity, structuring the internal hashing operations to align with the Digest trait's methods reflects good Rust practice and highlights the ecosystem's modular design.
 
+## Also See:
+
+[Merkle Tree Structure](https://www.researchgate.net/figure/Merkle-tree-structure_fig1_368493549)
 
 
