@@ -3,7 +3,9 @@ An experimental implementation of a Merkle / Hash Tree using the Rust programmin
 
 ## What is a Merkle Tree?
 
-![hash_.png](./images/hash_tree.png)
+![hash_tree.png](./images/hash_tree.png)
+
+![merkle-tree-structure.png](./images/merkle-tree-structure.png)
 
 A Merkle Tree, often referred to as a hash tree, represents a fundamental data structure in computer science and cryptography. 
 
