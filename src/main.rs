@@ -18,7 +18,7 @@
 //
 
 use sha2::{Sha256, Digest};
-use hex;
+// use hex;
 
 /// A node in the Merkle Tree
 #[derive(Debug)]
