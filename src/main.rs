@@ -163,30 +163,72 @@ impl Clone for Node {
 // }
 
 // Example usage
+// fn main() {
+//     // Create some data blocks
+//     let data_blocks = vec![
+//         b"Block 1".to_vec(),
+//         b"Block 2".to_vec(),
+//         b"Block 3".to_vec(),
+//         b"Block 4".to_vec(),
+//     ];
+    
+//     // Build a Merkle Tree
+//     let tree = MerkleTree::new(data_blocks.clone());
+    
+//     // Print the root hash
+//     if let Some(root_hash) = tree.root_hash() {
+//         println!("Root Hash: {}", root_hash.iter()
+//             .map(|b| format!("{:02x}", b))
+//             .collect::<String>());
+//     }
+    
+//     // Simple verification demonstration
+//     // In a real implementation, we would generate and verify proofs
+//     // This is just placeholder code to show the concept
+//     println!("\nVerification Example (placeholder):");
+//     println!("To properly verify data, we would need to generate a Merkle proof");
+//     println!("which includes sibling hashes along the path from the leaf to the root.");
+// }
+
 fn main() {
-    // Create some data blocks
-    let data_blocks = vec![
-        b"Block 1".to_vec(),
-        b"Block 2".to_vec(),
-        b"Block 3".to_vec(),
-        b"Block 4".to_vec(),
-    ];
-    
-    // Build a Merkle Tree
-    let tree = MerkleTree::new(data_blocks.clone());
-    
-    // Print the root hash
-    if let Some(root_hash) = tree.root_hash() {
-        println!("Root Hash: {}", root_hash.iter()
-            .map(|b| format!("{:02x}", b))
-            .collect::<String>());
+    // Example usage with a few data blocks
+    let data = vec!;
+
+    println!("Input Data Blocks: {}", data.len());
+
+    match build_merkle_root(data) {
+        Some(root) => {
+            // Print the Merkle Root as a hexadecimal string
+            println!("Merkle Root: {}", hex::encode(root));
+        }
+        None => {
+            println!("Cannot compute Merkle Root for empty data.");
+        }
     }
-    
-    // Simple verification demonstration
-    // In a real implementation, we would generate and verify proofs
-    // This is just placeholder code to show the concept
-    println!("\nVerification Example (placeholder):");
-    println!("To properly verify data, we would need to generate a Merkle proof");
-    println!("which includes sibling hashes along the path from the leaf to the root.");
+
+    // Example with empty data
+    let empty_data: Vec<Vec<u8>> = Vec::new();
+    println!("\nInput Data Blocks: {}", empty_data.len());
+     match build_merkle_root(empty_data) {
+        Some(root) => {
+             // This part should not be reached for empty data
+            println!("Merkle Root: {}", hex::encode(root));
+        }
+        None => {
+            println!("Cannot compute Merkle Root for empty data.");
+        }
+    }
+
+    // Example with one data block
+    let single_data = vec!;
+    println!("\nInput Data Blocks: {}", single_data.len());
+     match build_merkle_root(single_data) {
+        Some(root) => {
+            println!("Merkle Root: {}", hex::encode(root));
+        }
+        None => {
+            println!("Cannot compute Merkle Root for empty data.");
+        }
+    }
 }
 

@@ -1,6 +1,8 @@
 # merkle_tree_rust
 An experimental implementation of a Merkle / Hash Tree using the Rust programming language.
 
+THIS IS A WORK IN PROGRESS - A self teaching exercise.
+
 ## What is a Merkle Tree?
 
 ![hash_tree.png](./images/hash_tree.png)
