@@ -63,6 +63,38 @@ By utilizing the Digest trait, a Merkle Tree implementation could potentially sw
 
 While the implementation presented here will use SHA-256 for simplicity, structuring the internal hashing operations to align with the Digest trait's methods reflects good Rust practice and highlights the ecosystem's modular design.
 
+### Recommendation: sha2 Crate
+
+For this simple Merkle Tree implementation, the sha2 crate, specifically using the Sha256 algorithm, is recommended. This choice is justified because:
+* SHA-256 is a robust, widely trusted, and standardized cryptographic hash function frequently employed in Merkle Tree contexts, including Bitcoin.
+* The sha2 crate provides a high-quality, pure-Rust implementation that integrates seamlessly with the digest crate's traits.
+* It is actively maintained as part of the RustCrypto project.
+To use this crate, add the following line to your project's Cargo.toml file under the [dependencies] section:
+[dependencies]
+sha2 = "0.10"
+
+The basic usage pattern for hashing data with Sha256 via the Digest trait involves creating a hasher instance, feeding data into it using the update method, and finally calling finalize to retrieve the hash result. Here is a minimal example:
+
+```rust
+
+use sha2::{Sha256, Digest};
+
+// Create a new SHA-256 hasher
+let mut hasher = Sha256::new();
+
+// Update the hasher with data (can be called multiple times)
+hasher.update(b"some data");
+hasher.update(b"more data");
+
+// Finalize the hash computation and get the result
+// finalize() consumes the hasher instance
+let hash_result = hasher.finalize();
+
+// hash_result is a GenericArray<u8, U32> representing the 32-byte SHA-256 hash
+println!("SHA-256 Hash: {:x}", hash_result);
+
+```
+
 ## Also See:
 
 [Merkle Tree Structure](https://www.researchgate.net/figure/Merkle-tree-structure_fig1_368493549)
